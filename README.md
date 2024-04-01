@@ -51,3 +51,11 @@ A typical Framework project looks like this:
 | `yarn deploy`     | Deploy your project to Observable                        |
 | `yarn clean`      | Clear the local data loader cache                        |
 | `yarn observable` | Run commands like `observable help`                      |
+
+## Data Build Tool (dbt) for processing New York City real estate and property data
+
+This project uses [dbt](https://www.getdbt.com/) to process New York City real estate and property data. The dbt project is located in the `data_processing` directory and was initialized using the following command:
+
+```bash
+dbt init data_processing
+```
