@@ -2,7 +2,7 @@
 title: Example map
 ---
 
-# Leaflet Examples
+# Leaflet Examples 2
 
 [Observable Framework](https://observablehq.com/framework/) is an open source static site generator for data apps.
 
