@@ -1,6 +1,6 @@
 # New York Real Estate
 
-[!New York Real Estate](./new_york_real_estate_map_demo.gif)
+![New York Real Estate Map Demo](./new_york_real_estate_map_demo.gif)
 
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
 
