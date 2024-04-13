@@ -1,5 +1,7 @@
 # New York Real Estate
 
+[!New York Real Estate](./new_york_real_estate_map_demo.gif)
+
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
 
 ```
@@ -58,4 +60,18 @@ This project uses [dbt](https://www.getdbt.com/) to process New York City real e
 
 ```bash
 dbt init data_processing
+```
+
+## Making a GIF
+
+To make a GIF of your project, use Quicktime Player on Mac to record the screen, then save the `.mov` file somewhere and run:
+
+```bash
+# trim
+ffmpeg -ss 00:00:02 -to 00:00:08 -i recording3.mov -c copy trimmed_recording.mov
+# speed up
+ffmpeg -i trimmed_recording.mov -filter:v "setpts=PTS/5,fps=24" -an sped.mov
+# make gif
+ffmpeg -i sped.mov -vf "fps=20,scale=1080:-1:flags=lanczos,palettegen=stats_mode=diff" -y palette.png
+ffmpeg -i sped.mov -i palette.png -filter_complex "fps=20,scale=1080:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" -y high_quality.gif
 ```
