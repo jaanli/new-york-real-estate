@@ -52,7 +52,7 @@ toc: false
 
 ```js
 const center = [40.7,-74];
-const zoom = 2.5;
+const zoom = 8.5;
 ```
 
 ```js
