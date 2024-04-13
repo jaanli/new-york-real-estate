@@ -49,12 +49,13 @@ toc: false
   <h2>Welcome to interactive visualizations of New York City real estate data! The code and data used to generate these data are public and free to reuse :)
 </div>
 
+**Please note: this is a work in progress. You might need to refresh the page or try a different browser to get the map to display correctly! Please let me know if you run into issues or file an issue on GitHub: https://github.com/jaanli/new-york-real-estate**
 
 [Let me know](mailto:jaan.li@jaan.li) if you have ideas on what to link with this:
 * such as variables from the census: <a href="https://jaanli.github.io/american-community-survey/new-york-area/income-by-race">American Community Survey visualization of 159 New York Metropolitan Area neighborhoods and districts</a> 
 * or variables related to public health, health care access, and access to nonprivate spaces like coffee shops, saunas, communal bathhouses. (It's weird that my mom's hometown in Estonia pays for and maintains a free public sauna and in New York it's a bougie $90-a-pop upsold "wellness" experience privy to tech folk like me...)
 * verifying interesting anecdata, like some landlords exclusively working with foreign student rental agencies, as foreign students have high turnover (and often cannot get the requisite H-1B visas or green cards to stay in the country, often being from countries with high rates of visa denials, like India and China, or countries with high rates of visa overstays, like Nigeria and Brazil). I've been told that this lets them increase rents faster than if they rented to "locals". (I'm from Canada myself and benefited from the housing lottery last year.)
-* or variables related to private equity and sovereign wealth fund investments, alongside landowner shell companies and network analyses like [this](MKEPropertyOwnership.com)
+* or variables related to private equity and sovereign wealth fund investments, alongside landowner shell companies and network analyses like [this](https://MKEPropertyOwnership.com)
 <h3>Download the data dictionary here in order to understand the variables in the data: <code style="font-size: 90%;"><a href="https://data.ny.gov/api/views/f888-ni5f/files/3ceed6c6-54d9-49ad-921b-ae876a0561d8?download=true&filename=pluto_datadictionary.pdf">NYC Planning Primary Land Use Tax Lot Output Data Dictionary</a></code></h3>
 <code style="font-size: 90%;"><a href="https://github.com/jaanli/new-york-real-estate/blob/14e4caff0a741e2ef0b65c7d8a5195749f922639/notebooks/loading_visualizing_mapping_new_york_real_estate_data_in_python.ipynb">Code for data transform, starting from downloading the data from the New York City Department of City Planning</a></code>
 
