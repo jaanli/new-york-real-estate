@@ -70,7 +70,7 @@ maplibregl.addProtocol("pmtiles",protocol.tile);
 
 ```js
 const div = display(document.createElement("div"));
-div.style = "height: 600px;";
+div.style = "height: 1000px;";
 const map = new maplibregl.Map({
   container: div,
   zoom: zoom - 1,
