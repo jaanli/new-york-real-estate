@@ -47,6 +47,7 @@ toc: false
 <div class="hero">
   <h1>New York Real Estate</h1>
   <h2>Welcome to interactive visualizations of New York City real estate data! All of the code and data are public and free to reuse :). Let me know if you have ideas on what to link with this, such as variables from the census: <a href="https://jaanli.github.io/american-community-survey/new-york-area/income-by-race">American Community Survey visualization of 159 New York Metropolitan Area neighborhoods and districts</a>
+  <h3>Download the data dictionary here in order to understand the variables in the data: <code style="font-size: 90%;"><a href="https://data.ny.gov/api/views/f888-ni5f/files/3ceed6c6-54d9-49ad-921b-ae876a0561d8?download=true&filename=pluto_datadictionary.pdf">NYC Planning Primary Land Use Tax Lot Output Data Dictionary</a></code></h3>
   <code style="font-size: 90%;"><a href="https://github.com/jaanli/new-york-real-estate/blob/14e4caff0a741e2ef0b65c7d8a5195749f922639/notebooks/loading_visualizing_mapping_new_york_real_estate_data_in_python.ipynb">Code for data transform, starting from downloading the data from the New York City Department of City Planning</a></code></h3>
 </div>
 
