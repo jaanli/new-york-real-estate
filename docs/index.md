@@ -52,7 +52,7 @@ toc: false
 
 ```js
 const center = [40.7,-74];
-const zoom = 10.5;
+const zoom = 0.5;
 ```
 
 ```js
@@ -70,7 +70,7 @@ maplibregl.addProtocol("pmtiles",protocol.tile);
 
 ```js
 const div = display(document.createElement("div"));
-div.style = "height: 400px;";
+div.style = "height: 600px;";
 const map = new maplibregl.Map({
   container: div,
   zoom: zoom - 1,
