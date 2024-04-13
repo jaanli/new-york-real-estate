@@ -56,7 +56,7 @@ const zoom = 9.5;
 ```
 
 ```js
-const areas = FileAttachment("data/new_york_real_estate_MapPLUTO_data_min_zoom_0_max_zoom_12.pmtiles");
+const areas = FileAttachment("data/new_york_real_estate_MapPLUTO_data_ndjson_min_zoom_0_max_zoom_12.pmtiles");
 ```
 
 ```js
