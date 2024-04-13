@@ -52,11 +52,11 @@ toc: false
 
 ```js
 const center = [40.7,-74];
-const zoom = 9.5;
+const zoom = 10.5;
 ```
 
 ```js
-const areas = FileAttachment("data/new_york_real_estate_MapPLUTO_data_min_zoom_0_max_zoom_12.pmtiles");
+const areas = FileAttachment("data/new_york_real_estate_MapPLUTO_data_min_zoom_0_max_zoom_g.pmtiles");
 ```
 
 ```js
