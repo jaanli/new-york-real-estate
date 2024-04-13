@@ -55,6 +55,7 @@ const center = [40.7,-74];
 const zoom = 9.5;
 ```
 
+
 ```js
 const areas = FileAttachment("data/new_york_real_estate_MapPLUTO_data_ndjson_min_zoom_0_max_zoom_12.pmtiles");
 ```
