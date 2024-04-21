@@ -1,0 +1,4 @@
+- name: cityofnewyork.us
+  config:
+    data_path: "{{ var('data_path') }}"
+    output_path: "{{ var('output_path') }}"
