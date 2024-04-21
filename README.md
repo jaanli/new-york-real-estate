@@ -2,6 +2,16 @@
 
 ![New York Real Estate Map Demo](./new_york_real_estate_map_demo.gif)
 
+## Demo Notebooks
+
+- Parsing the entirety of the 3.9 million rows and 21 columns of the Department of Buildings Permit Issuance dataset from NYC Open Data:
+  - in the `notebooks` directory: https://github.com/jaanli/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb or:
+<a target="_blank" href="https://colab.research.google.com/github/jaanli/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+## Getting started
+
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
 
 ```
