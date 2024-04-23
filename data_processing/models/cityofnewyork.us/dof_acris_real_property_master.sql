@@ -1,5 +1,280 @@
-{{ config(materialized='external', location=var('output_path') + '/' + this.name + '.parquet') }}
+{{ config(
+    materialized = 'external',
+    location = var('output_path') + '/' + this.name + '.parquet'
+) }}
 
-SELECT * FROM read_csv_auto('~/Downloads/ACRIS_-_Real_Property_Master_20240422.csv',
-                            types={'DOC. DATE': 'VARCHAR'},
-                            dateformat='%m/%d/%Y')
+SELECT
+    "DOCUMENT ID",
+    "RECORD TYPE",
+    "CRFN",
+    "BOROUGH",
+    "DOC. TYPE" :: enum(
+        'AGMT',
+        'AMFL',
+        'ASPM',
+        'ASST',
+        'ASTU',
+        'ASUM',
+        'BOND',
+        'BRUP',
+        'CERR',
+        'CNFL',
+        'CERT',
+        'CNTR',
+        'CODP',
+        'CONS',
+        'CONT',
+        'CTOR',
+        'DCTO',
+        'DECL',
+        'DEED',
+        'DEMM',
+        'DTL',
+        'EASE',
+        'FL',
+        'FTL',
+        'IDED',
+        'INIC',
+        'INIT',
+        'JUDG',
+        'LDMK',
+        'LEAS',
+        'LIC',
+        'LTPA',
+        'MAPS',
+        'MERG',
+        'MISC',
+        'MMTG',
+        'MTGE',
+        'PAT',
+        'PRFL',
+        'PSAT',
+        'PSGN',
+        'REL',
+        'RFL',
+        'RESO',
+        'RFTL',
+        'RLSE',
+        'RPAT',
+        'RTXL',
+        'SAGE',
+        'SAT',
+        'SMIS',
+        'SMTG',
+        'STP',
+        'SUBL',
+        'SUBO',
+        'TLS',
+        'TERM',
+        'TERT',
+        'UCC1',
+        'UCC3',
+        'VAC',
+        'WILL',
+        'ASGN',
+        'ASSTO',
+        'WSAT',
+        'RETT',
+        'RPTT',
+        'CDEC',
+        'AL&R',
+        'DEEDO',
+        'AMTX',
+        'AMND',
+        'AMTL',
+        'ATL',
+        'RPTT&RET',
+        'CORR',
+        'CORP',
+        'ZONE',
+        'AALR',
+        'CALR',
+        'ADEC',
+        'LOCC',
+        'TOLCC',
+        'DEVR',
+        'DECM',
+        'MLEA',
+        'MCON',
+        'M&CON',
+        'SPRD',
+        'TL&R',
+        'SUBM',
+        'PREL',
+        'ACON',
+        'CORRD',
+        'CORRM',
+        'CONDEED',
+        'REIT',
+        'TERL',
+        'ESTL',
+        'XXXX',
+        'CMTG',
+        'WFL',
+        'ESRM',
+        'NTXL',
+        'NAPP',
+        'TERA',
+        'RCRFL',
+        'DEED COR',
+        'DEED, LE',
+        'CORR, LE',
+        'DEED, TS',
+        'UCC ADEN',
+        'TERDECL',
+        'NAFTL',
+        'APPRT',
+        'AIRRIGHT',
+        'SI CORR',
+        'PWFL',
+        'PRCFL',
+        'DPFTL',
+        'DEEDP',
+        'TORREN',
+        'DEED, RC',
+        'SCDEC'
+    ) AS "DOC. TYPE",
+    CASE
+        "DOC. TYPE" -- from https://catalog.data.gov/dataset/acris-document-control-codes
+        WHEN 'AGMT' THEN 'AGREEMENT'
+        WHEN 'AMFL' THEN 'AMENDMENT OF FEDERAL LIEN'
+        WHEN 'ASPM' THEN 'ASSUMPTION OF MORTGAGE'
+        WHEN 'ASST' THEN 'ASSIGNMENT, MORTGAGE'
+        WHEN 'ASTU' THEN 'UNIT ASSIGNMENT'
+        WHEN 'ASUM' THEN 'UCC3 ASSUMPTION'
+        WHEN 'BOND' THEN 'BOND'
+        WHEN 'BRUP' THEN 'UCC3 BANKRUPTCY'
+        WHEN 'CERR' THEN 'CERTIFICATE OF REDUCTION'
+        WHEN 'CNFL' THEN 'CONTINUATION OF FEDERAL LIEN'
+        WHEN 'CERT' THEN 'CERTIFICATE'
+        WHEN 'CNTR' THEN 'CONTRACT OF SALE'
+        WHEN 'CODP' THEN 'CONDEMNATION PROCEEDINGS'
+        WHEN 'CONS' THEN 'CONSENT'
+        WHEN 'CONT' THEN 'UCC3 CONTINUATION'
+        WHEN 'CTOR' THEN 'COURT ORDER'
+        WHEN 'DCTO' THEN 'COURT ORDER ADVERSE POSS.'
+        WHEN 'DECL' THEN 'DECLARATION'
+        WHEN 'DEED' THEN 'DEED'
+        WHEN 'DEMM' THEN 'DECLARATION OF MODIFI OF MRT'
+        WHEN 'DTL' THEN 'DISCHARGE OF TAX LIEN'
+        WHEN 'EASE' THEN 'EASEMENT'
+        WHEN 'FL' THEN 'FEDERAL LIEN-IRS'
+        WHEN 'FTL' THEN 'FEDERAL LIEN, OTHER'
+        WHEN 'IDED' THEN 'IN REM DEED'
+        WHEN 'INIC' THEN 'INITIAL COOP UCC1'
+        WHEN 'INIT' THEN 'INITIAL UCC1'
+        WHEN 'JUDG' THEN 'JUDGMENT'
+        WHEN 'LDMK' THEN 'LANDMARK DESIGNATION'
+        WHEN 'LEAS' THEN 'LEASE'
+        WHEN 'LIC' THEN 'LICENSE'
+        WHEN 'LTPA' THEN 'LETTERS PATENT'
+        WHEN 'MAPS' THEN 'MAPS'
+        WHEN 'MERG' THEN 'MERGER'
+        WHEN 'MISC' THEN 'MISCELLANEOUS'
+        WHEN 'MMTG' THEN 'MASTER MORTGAGE'
+        WHEN 'MTGE' THEN 'MORTGAGE'
+        WHEN 'PAT' THEN 'POWER OF ATTORNEY'
+        WHEN 'PRFL' THEN 'PARTIAL RELEASE OF FED LIEN'
+        WHEN 'PSAT' THEN 'PARTIAL SATISFACTION'
+        WHEN 'PSGN' THEN 'UCC3 PARTIAL ASSIGNMENT'
+        WHEN 'REL' THEN 'RELEASE'
+        WHEN 'RFL' THEN 'RELEASE OF FEDERAL LIEN'
+        WHEN 'RESO' THEN 'RESOLUTION'
+        WHEN 'RFTL' THEN 'RELEASE OF FEDERAL TAX LIEN'
+        WHEN 'RLSE' THEN 'UCC3 RELEASE/UCC AMENDMENT'
+        WHEN 'RPAT' THEN 'REVOCATION OF POWER OF ATTORNE'
+        WHEN 'RTXL' THEN 'RELEASE OF ESTATE TAX LIEN'
+        WHEN 'SAGE' THEN 'SUNDRY AGREEMENT'
+        WHEN 'SAT' THEN 'SATISFACTION OF MORTGAGE'
+        WHEN 'SMIS' THEN 'SUNDRY MISCELLANEOUS'
+        WHEN 'SMTG' THEN 'SUNDRY MORTGAGE'
+        WHEN 'STP' THEN 'STREET PROCEDURE'
+        WHEN 'SUBL' THEN 'SUBORDINATION OF LEASE'
+        WHEN 'SUBO' THEN 'UCC3 SUBORDINATION'
+        WHEN 'TLS' THEN 'TAX LIEN SALE CERTIFICATE'
+        WHEN 'TERM' THEN 'UCC3 TERMINATION'
+        WHEN 'TERT' THEN 'TERMINATION OF TRUST'
+        WHEN 'UCC1' THEN 'UNIFORM COMMERCIAL CODE 1'
+        WHEN 'UCC3' THEN 'UNIFORM COMMERCIAL CODE 3'
+        WHEN 'VAC' THEN 'VACATE ORDER'
+        WHEN 'WILL' THEN 'CERTIFIED COPY OF WILL'
+        WHEN 'ASGN' THEN 'UCC3 ASSIGNMENT'
+        WHEN 'ASSTO' THEN 'ASSIGNMENT OF LEASE'
+        WHEN 'WSAT' THEN 'WITHHELD SATISFACTION'
+        WHEN 'RETT' THEN 'NYS REAL ESTATE TRANSFER TAX'
+        WHEN 'RPTT' THEN 'NYC REAL PROPERTY TRANSFER TAX'
+        WHEN 'CDEC' THEN 'CONDO DECLARATION'
+        WHEN 'AL&R' THEN 'ASSIGNMENT OF LEASES AND RENTS'
+        WHEN 'DEEDO' THEN 'DEED, OTHER'
+        WHEN 'AMTX' THEN 'ADDITIONAL MORTGAGE TAX'
+        WHEN 'AMND' THEN 'UCC3 AMENDMENT'
+        WHEN 'AMTL' THEN 'AMENDMENT OF TAX LIEN'
+        WHEN 'ATL' THEN 'ASSIGNMENT OF TAX LIEN'
+        WHEN 'RPTT&RET' THEN 'BOTH RPTT AND RETT'
+        WHEN 'CORR' THEN 'CORRECTION DOC-OFFICE USE ONLY'
+        WHEN 'CORP' THEN 'UCC 5 CORRECTION STATEMENT'
+        WHEN 'ZONE' THEN 'ZONING LOT DESCRIPTION'
+        WHEN 'AALR' THEN 'ASGN OF ASGN OF L&R'
+        WHEN 'CALR' THEN 'CANCEL/TERM ASGN L&R'
+        WHEN 'ADEC' THEN 'AMENDED CONDO DECLARATION'
+        WHEN 'LOCC' THEN 'LIEN OF COMMON CHARGES'
+        WHEN 'TOLCC' THEN 'TERM OF LIEN OF COMMON CHARGES'
+        WHEN 'DEVR' THEN 'DEVELOPMENT RIGHTS'
+        WHEN 'DECM' THEN 'DECLARATION OF MERGER'
+        WHEN 'MLEA' THEN 'MEMORANDUM OF LEASE'
+        WHEN 'MCON' THEN 'MEMORANDUM OF CONTRACT'
+        WHEN 'M&CON' THEN 'MORTGAGE AND CONSOLIDATION'
+        WHEN 'SPRD' THEN 'MORTGAGE SPREADER AGREEMENT'
+        WHEN 'TL&R' THEN 'TERMINATION OF ASSIGN OF L&R'
+        WHEN 'SUBM' THEN 'SUBORDINATION OF MORTGAGE'
+        WHEN 'PREL' THEN 'PARTIAL RELEASE OF MORTGAGE'
+        WHEN 'ACON' THEN 'ASSIGN/TERM OF CONTRACT/BID'
+        WHEN 'CORRD' THEN 'CORRECTION DEED'
+        WHEN 'CORRM' THEN 'CORRECTION MORTGAGE'
+        WHEN 'CONDEED' THEN 'CONFIRMATORY DEED'
+        WHEN 'REIT' THEN 'REAL ESTATE INV TRUST DEED'
+        WHEN 'TERL' THEN 'TERMINATION OF LEASE OR MEMO'
+        WHEN 'ESTL' THEN 'ESTOPPEL FOR OFFICE USE ONLY'
+        WHEN 'XXXX' THEN 'APPRT BREAKDWN OFFICE USE ONLY'
+        WHEN 'CMTG' THEN 'COLLATERAL MORTGAGE'
+        WHEN 'WFL' THEN 'WITHDRAWAL OF A FED LIEN'
+        WHEN 'ESRM' THEN 'ESTOPPAL REMOVAL OFFICE USE ON'
+        WHEN 'NTXL' THEN 'NOTICE OF ESTATE TAX LIEN'
+        WHEN 'NAPP' THEN 'NOTICE OF APPROPRIATION'
+        WHEN 'TERA' THEN 'TERMINATION OF AGREEMENT'
+        WHEN 'RCRFL' THEN 'REVOCATION OF CERTIF. OF RFL'
+        WHEN 'DEED COR' THEN 'CORRECT INDEX/DEED-OFFICE USE'
+        WHEN 'DEED, LE' THEN 'LIFE ESTATE DEED'
+        WHEN 'CORR, LE' THEN 'CORRECT LIFE ESTATE OFFICE USE'
+        WHEN 'DEED, TS' THEN 'TIMESHARE DEED'
+        WHEN 'UCC ADEN' THEN 'UCC COOPERATIVE ADDENDUM'
+        WHEN 'TERDECL' THEN 'TERM. OF CONDO DECLARATION'
+        WHEN 'NAFTL' THEN 'CERT NONATTCHMENT FED TAX LIEN'
+        WHEN 'APPRT' THEN 'APP. ORDER BREAKDWN OFFICE USE'
+        WHEN 'AIRRIGHT' THEN 'AIR RIGHTS'
+        WHEN 'SI CORR' THEN 'SI BILLING UPDATE OFFICE USE'
+        WHEN 'PWFL' THEN 'PARTIAL WITHDRAWL OF FED LIEN'
+        WHEN 'PRCFL' THEN 'PARTIAL REVOCATION OF CERT RFL'
+        WHEN 'DPFTL' THEN 'DISCHARGE OF PROPERTY FROM FTL'
+        WHEN 'DEEDP' THEN 'DEED, PRE RPT TAX'
+        WHEN 'TORREN' THEN 'TORREN'
+        WHEN 'DEED, RC' THEN 'DEED WITH RESTRICTIVE COVENANT'
+        WHEN 'SCDEC' THEN 'DECLARATION OF CONDO IN CONDO'
+    END AS "DOC. TYPE DESCRIPTION",
+    "DOC. DATE",
+    CAST(
+        "DOC. AMOUNT" AS DECIMAL
+    ) AS "DOC. AMOUNT",
+    "RECORDED / FILED",
+    "MODIFIED DATE",
+    "REEL YEAR",
+    "REEL NBR",
+    "REEL PAGE",
+    "% TRANSFERRED",
+    "GOOD THROUGH DATE"
+FROM
+    read_csv_auto(
+        '~/Downloads/ACRIS_-_Real_Property_Master_20240422.csv',
+        types ={ 'DOC. DATE': 'VARCHAR' },
+        dateformat = '%m/%d/%Y'
+    )

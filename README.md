@@ -82,3 +82,7 @@ ffmpeg -i trimmed_recording.mov -filter:v "setpts=PTS/5,fps=24" -an sped.mov
 ffmpeg -i sped.mov -vf "fps=20,scale=1080:-1:flags=lanczos,palettegen=stats_mode=diff" -y palette.png
 ffmpeg -i sped.mov -i palette.png -filter_complex "fps=20,scale=1080:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" -y high_quality.gif
 ```
+
+## SQL Formatting
+
+We rely on Name: dbt formatter (https://marketplace.visualstudio.com/items?itemName=henriblancke.vscode-dbt-formatter) for this.
