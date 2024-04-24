@@ -13,3 +13,4 @@ pip-tools
 duckdb-engine
 geopandas
 ruff
+playwright
