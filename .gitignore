@@ -170,3 +170,7 @@ cython_debug/
 #.idea/
 
 *.duckdb
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

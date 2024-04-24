@@ -86,3 +86,25 @@ ffmpeg -i sped.mov -i palette.png -filter_complex "fps=20,scale=1080:-1:flags=la
 ## SQL Formatting
 
 We rely on Name: dbt formatter (https://marketplace.visualstudio.com/items?itemName=henriblancke.vscode-dbt-formatter) for this.
+
+## Adding dependecies
+
+Append to `requirements.in` then run (inside of the virtual environment for the project):
+
+```
+pip install pip-tools
+pip-compile
+pip install -r requirements.txt
+```
+
+## Downloading datasets from NYC Open Data
+
+Prerequisites: install the virtual environment, then install node: https://nodejs.org/en/download/package-manager
+
+Then install playwright: https://playwright.dev/docs/intro
+
+Then run:
+
+```
+python src/download_nyc_open_data.py
+```
