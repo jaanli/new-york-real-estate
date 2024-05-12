@@ -94,6 +94,8 @@ Append to `requirements.in` then run (inside of the virtual environment for the 
 ```
 pip install pip-tools
 pip-compile
+python3 -m venv .venv 
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -107,4 +109,12 @@ Then run:
 
 ```
 python src/download_nyc_open_data.py
+```
+
+## Debugging
+
+If errors are encountered around `.so` files not found or incorrect architectures, try:
+
+```
+pip uninstall psutil && pip install --no-binary :all: psutil
 ```

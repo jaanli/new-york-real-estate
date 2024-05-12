@@ -15,3 +15,17 @@ geopandas
 ruff
 playwright
 beartype
+jupyter-ai
+jupyterlab
+pyzmq
+jupyter
+python-dotenv
+langchain-anthropic
+pandas
+ipywidgets
+numpy
+matplotlib
+altair
+vega_datasets
+pip-tools
+psutil
