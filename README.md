@@ -118,3 +118,13 @@ If errors are encountered around `.so` files not found or incorrect architecture
 ```
 pip uninstall psutil && pip install --no-binary :all: psutil
 ```
+
+## Loading entity data 
+
+Run the following from the root of this repository:
+```
+cd data_processing/scripts/
+direnv allow
+```
+
+Make sure you have `direnv` and `sshpass` installed (these can be installed with a package manager such as homebrew).
