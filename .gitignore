@@ -5,6 +5,8 @@ node_modules/
 yarn-error.log
 .venv/
 logs/
+# for direnv
+.envrc 
 
 .venv
 .venv/
