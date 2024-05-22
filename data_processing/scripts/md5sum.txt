@@ -303,4 +303,3 @@ d95c4b99e25a313fa2a965e5e4f10eba us_wy/additional_identifiers.csv.gz
 5fd8e4ff676436eab027a256aaef017f us_wy/companies.csv.gz
 3da1f153792b26aa4b2ca6139536c50c us_wy/non_reg_addresses.csv.gz
 2bc935fef415c11f8def53fa6891b8f2 us_wy/officers.csv.gz
-
