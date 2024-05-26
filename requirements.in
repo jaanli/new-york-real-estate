@@ -29,3 +29,7 @@ altair
 vega_datasets
 pip-tools
 psutil
+seedir
+mosaic-widget
+tabulate
+great_tables
