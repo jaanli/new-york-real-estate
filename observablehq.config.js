@@ -70,8 +70,8 @@ export default {
       <span class="hide-if-small">Visualizing and Mapping </span> New York Real Estate
     </a>
     <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
-      <a target="_blank" href="https://github.com/jaanli/new-york-real-estate/"><span>View source</span></a>
+      <a target="_blank" href="https://github.com/onefact/new-york-real-estate/"><span>View source</span></a>
     </span>
   </div>
-</div>`
+</div>`,
 };

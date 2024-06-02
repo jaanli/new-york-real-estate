@@ -5,7 +5,7 @@
 ## Demo Notebooks
 
 - Parsing the entirety of the 3.9 million rows and 60 columns of the Department of Buildings Permit Issuance dataset from NYC Open Data:
-  - in the `notebooks` directory: https://github.com/jaanli/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb or: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jaanli/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb)
+  - in the `notebooks` directory: https://github.com/onefact/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb or: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/onefact/new-york-real-estate/blob/main/notebooks/nyc.gov_department_of_buildings_permit_issuance_data_processing.ipynb)
 
 ## Getting started
 
@@ -94,7 +94,7 @@ Append to `requirements.in` then run (inside of the virtual environment for the 
 ```
 pip install pip-tools
 pip-compile
-python3 -m venv .venv 
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -119,7 +119,7 @@ If errors are encountered around `.so` files not found or incorrect architecture
 pip uninstall psutil && pip install --no-binary :all: psutil
 ```
 
-## Loading entity data 
+## Loading entity data
 
 Run the following from the root of this repository:
 ```
