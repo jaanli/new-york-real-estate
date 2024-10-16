@@ -2,6 +2,7 @@
 
 ![New York Real Estate Map Demo](./new_york_real_estate_map_demo.gif)
 
+
 ## Demo Notebooks
 
 - Parsing the entirety of the 3.9 million rows and 60 columns of the Department of Buildings Permit Issuance dataset from NYC Open Data:
